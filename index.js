@@ -73,43 +73,39 @@ function createCell(grid, isDouble, text) {
       bottomShowBar.textContent += text;
     }
     if (cell.textContent === "÷") {
-      storedValue = bottomShowBar.textContent;
-      topShowBar.textContent = storedValue + "÷";
-      bottomShowBar.textContent = "";
-      clickEl = cell;
+      showResult(cell, "÷")
     } else if (cell.textContent === "*") {
-      storedValue = bottomShowBar.textContent;
-      topShowBar.textContent = storedValue + "*";
-      bottomShowBar.textContent = "";
-      clickEl = cell;
+      showResult(cell, "*")
     } else if (cell.textContent === "+") {
-      storedValue = bottomShowBar.textContent;
-      topShowBar.textContent = storedValue + "+";
-      bottomShowBar.textContent = "";
-      clickEl = cell;
+      showResult(cell, "+")
     } else if (cell.textContent === "-") {
-      storedValue = bottomShowBar.textContent;
-      topShowBar.textContent = storedValue + "-";
-      bottomShowBar.textContent = "";
-      clickEl = cell;
+      showResult(cell, "-")
     } else if (cell.textContent === "=") {
       if (clickEl.textContent === "÷") {
         const res = Number(storedValue) / Number(bottomShowBar.textContent);
-        topShowBar.textContent = "";
-        bottomShowBar.textContent = res;
+        computedVal(res)
       } else if (clickEl.textContent === "*") {
         const res = Number(storedValue) * Number(bottomShowBar.textContent);
-        topShowBar.textContent = "";
-        bottomShowBar.textContent = res;
+        computedVal(res)
       } else if (clickEl.textContent === "+") {
         const res = Number(storedValue) + Number(bottomShowBar.textContent);
-        topShowBar.textContent = "";
-        bottomShowBar.textContent = res;
+        computedVal(res)
       } else if (clickEl.textContent === "-") {
         const res = Number(storedValue) - Number(bottomShowBar.textContent);
-        topShowBar.textContent = "";
-        bottomShowBar.textContent = res;
+        computedVal(res)
       }
     }
   });
 };
+
+function showResult(cell, optor) {
+  storedValue = bottomShowBar.textContent;
+  topShowBar.textContent = storedValue + optor;
+  bottomShowBar.textContent = "";
+  clickEl = cell;
+}
+
+function computedVal(res) {
+  topShowBar.textContent = "";
+  bottomShowBar.textContent = res;
+}
