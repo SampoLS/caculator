@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+.bar1, .bar2 {
+  width: 200px;
+  height: 30px;
+  padding: 0 10px;
+  outline: none;
+  border: 1px solid #ddd;
+}
+.bar1 {
+  border-bottom: none;
+}
+.bar2 {
+  border-top: none;
+}
+
+.grid {
+  width: 200px;
+  height: 300px;
+}
+.grid button {
+  border: 1px solid #ddd;
+}
